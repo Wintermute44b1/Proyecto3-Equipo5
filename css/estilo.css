@@ -1,0 +1,10 @@
+.menu_utilidades {
+   display: grid;
+   grid-template-columns: 15% 60% 15%;
+   overflow-wrap: normal;
+}
+
+.fondo_principal {
+    background-color: darkcyan;
+    color: bisque;
+}
