@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="./css/estilo.css" />
   </head>
   <body>
-    <div>
-      <canvas id="myChart"></canvas>
-    </div>
+  
     <nav class="navbar" style="background-color: #1173b9">
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
@@ -49,13 +47,17 @@
           >Mostrar Calendario Astronomico</a
         >
       </div>
-      <div class="fondo_principal">Revisa aqui el clima de tu zona</div>
+      <div class="fondo_principal">
+        <div>
+        </div>  <canvas id="myChart"></canvas> </div>
+
     </div>
     <div>
-      <p>Cambia tu localidad</p>
+      <p class="texto1">Revisa aqui el clima de tu zona</p>
+      <p class="texto1">Cambia tu localidad</p>
       <input type="text" />
     </div>
-    <button type="button" class="btn btn-success">Enviar</button>
+    <button type="button" class="btn btn-success" onclick="grafica()">Enviar</button>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script
