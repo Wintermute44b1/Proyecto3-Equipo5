@@ -1,4 +1,4 @@
-const $grafica = document.querySelector("#grafica");
+const $grafica = document.querySelector("grafica");
 const etiquetas = ["Colombia", "Mexico", "España", "EEUU", "Nicaragua", "Brazil", "Canada"];
 const data = {
   labels: etiquetas,
@@ -23,21 +23,23 @@ new Chart($grafica, {
 });
 
 const llamarApiClima = async () => {
+  const longitud = document.getElementById("longitud-input").value;
+  const latitud = document.getElementById("latitud-input").value;
+
   try {
     const respuesta = await fetch(
-      "http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=astro&output=json"
+      `http://www.7timer.info/bin/api.pl?lon=${longitud}&lat=${latitud}&product=astro&output=json`
     );
     const json = await respuesta.json();
     console.log(json);
-    // get the canvas
+
     const canvas = document.getElementById('myChart');
-    // create a new chart instance
     const chart = new Chart(canvas, {
       type: 'bar',
       data: {
-        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+        labels: ['Lunes ', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'],
         datasets: [{
-          label: 'Temperature',
+          label: 'Temperatura',
           data: [json.dataseries[0].temp2m, json.dataseries[1].temp2m, json.dataseries[2].temp2m, json.dataseries[3].temp2m, json.dataseries[4].temp2m, json.dataseries[5].temp2m, json.dataseries[6].temp2m],
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgba(255, 99, 132, 1)',
@@ -56,6 +58,8 @@ const llamarApiClima = async () => {
     console.log(error);
   }
 };
+
+document.getElementById("submit-button").addEventListener("click", llamarApiClima);
 
 llamarApiClima();
 
