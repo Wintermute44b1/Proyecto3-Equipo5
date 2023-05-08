@@ -32,11 +32,13 @@ new Chart($grafica, {
   },
 });
 
-const inputNombreCiudad = document.getElementById(inputNombreCiudad);
+const longitudInput = document.getElementById("longitudInput");
+const latitudInput = document.getElementById("latitudInput");
 
 const consultaClima = () => {
   console.log("obteniendo clima");
-  console.log(inputNombreCiudad.value);
+  console.log(longitudInput.value);
+  console.log(latitudInput.value);
 };
 
 const llamarApiClima = async () => {
@@ -85,3 +87,4 @@ const llamarApiClima = async () => {
 };
 
 llamarApiClima();
+consultaClima();
